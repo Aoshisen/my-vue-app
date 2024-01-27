@@ -1,0 +1,12 @@
+.test {
+    color: $red-color;
+
+    .red-text {
+        color: $blue-color;
+    }
+}
+
+.box {
+    background-color: white;
+    @include circle(200px);
+}

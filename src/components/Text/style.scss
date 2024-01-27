@@ -1,0 +1,15 @@
+@mixin textAlign {
+    text-align: center;
+}
+
+*[class$="text"] {
+    @include textAlign;
+}
+
+.red-text {
+    color: $red-color
+}
+
+.blue-text {
+    color: $blue-color;
+}
