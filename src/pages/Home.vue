@@ -1,7 +1,8 @@
 <script setup lang="ts">
-console.log("home")
+import { Count } from "@/components";
 </script>
 
 <template>
-	this is home
+  this is home
+  <Count />
 </template>
