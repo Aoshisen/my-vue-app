@@ -1,0 +1,22 @@
+console.log("this is mock");
+import Mock from "mockjs";
+import MockAdapter from "axios-mock-adapter";
+
+import axios_instance from "@/services/base";
+
+let axios_adapter = new MockAdapter(axios_instance);
+
+const data = Mock.mock({
+  // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
+  "list|1-10": [
+    {
+      // 属性 id 是一个自增数，起始值为 1，每次增 1
+      "id|+1": 1,
+    },
+  ],
+});
+console.log("mockjs", "<<<<<<<<<<<<<")
+
+axios_adapter.onGet("/api/test").reply(200, {
+  data,
+});

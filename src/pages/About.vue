@@ -1,7 +1,8 @@
 <script setup lang="ts">
-console.log("this is about page")
+import { toRefs } from "vue";
+import { useRoute } from "vue-router";
+const router = useRoute();
+const { params } = toRefs(router);
 </script>
 
-<template>
-	this is about
-</template>
+<template>this is about {{ params.id }}</template>
