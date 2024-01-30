@@ -15,7 +15,6 @@ const data = Mock.mock({
     },
   ],
 });
-console.log("mockjs", "<<<<<<<<<<<<<")
 
 axios_adapter.onGet("/api/test").reply(200, {
   data,

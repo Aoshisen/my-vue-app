@@ -1,11 +1,10 @@
 import axios from "./base";
 
-export function getTest() {
-  console.log("发送请求");
+export const getTest = () => {
   return axios.get("test");
-}
+};
 
-export function getTodo() {
+export const getTodo = () => {
   console.log("发送请求");
   return axios.get("todos/1");
-}
+};

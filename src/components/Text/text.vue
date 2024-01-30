@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, defineProps, toRefs } from "vue";
+import { toRefs } from "vue";
 interface TextProps {
   text: number;
 }
