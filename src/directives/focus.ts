@@ -1,3 +1,7 @@
-export function vFocus(el: HTMLElement) {
-  el.focus()
-}
+import { Directive } from "vue";
+
+export const vFocus: Directive = {
+  mounted(el) {
+    el.focus();
+  },
+};
