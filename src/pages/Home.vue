@@ -17,6 +17,7 @@ const { data, error, loading } = useAxios("test");
   test_loading:{{ loading }} <br />
   test_error:{{ error }}
 
-  <button @click="getTodo" v-expand-click="[10, 20, 30, 40]">getTodo</button>
+  <!-- //v-expand-click 上右下左 区域扩展 -->
+  <button @click="getTodo" v-expand-click="[20, 20, 20, 20]">getTodo</button>
   <input type="text" v-focus />
 </template>
