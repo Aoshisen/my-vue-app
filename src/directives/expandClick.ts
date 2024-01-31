@@ -1,17 +1,19 @@
+import { generateDirectionValue } from "@/utils";
 import { Directive } from "vue";
 
-export const vExpandClick: Directive = {
+export const vExpandClick: Directive<HTMLElement, Array<number>> = {
   mounted(el, binding) {
     const DEFAULT = 10;
-    const [top = DEFAULT, right = DEFAULT, bottom = DEFAULT, left = DEFAULT] =
-      binding.value?.length ? binding.value : [];
+    const [top, right, bottom, left] = generateDirectionValue(
+      binding.value || DEFAULT
+    );
     const parentNode = el.parentNode as HTMLElement;
     const styleTag = document.createElement("style");
     const className = "expand_click_range";
     const styleText = getStyleText(className, [top, right, bottom, left]);
     styleTag.innerHTML = styleText;
     parentNode.insertBefore(styleTag, el);
-    addClass(el, className);
+    el.classList.add(className);
   },
 };
 
@@ -31,8 +33,4 @@ function getStyleText(className: string, expand_values: Array<number>) {
 	}
 	`;
   return result;
-}
-
-function addClass(el: HTMLElement, className: string) {
-  el.className = el.className + " " + className;
 }
