@@ -1,15 +1,12 @@
 <script lang="ts" setup>
-import { storeToRefs } from "pinia";
-import { useCounterStore } from "@/store";
-const countStore = useCounterStore();
-const { increment, decrement } = countStore;
-const { doubleCount, count } = storeToRefs(countStore);
+import { useCounter } from "@/hooks";
+const { count, doubleCount, increase, decrease } = useCounter(0);
 </script>
 <template>
-  <button @click="increment">this is add</button>
+  <button @click="() => increase()">this is add</button>
   {{ count }}
   {{ doubleCount }}
-  <button @click="decrement">this is sub</button>
+  <button @click="() => decrease()">this is sub</button>
   <div class="box"></div>
 </template>
 

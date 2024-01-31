@@ -1,8 +1,8 @@
-export function increase(value: number) {
-  return ++value;
+export function increase(value: number, delta?: number) {
+  return delta === undefined ? ++value : value + delta;
 }
-export function decrease(value: number) {
-  return --value;
+export function decrease(value: number, delta?: number) {
+  return delta === undefined ? --value : value - delta;
 }
 
 export function double(value: number) {
