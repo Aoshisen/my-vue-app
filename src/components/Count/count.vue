@@ -1,6 +1,12 @@
 <script lang="ts" setup>
 import { useCounter } from "@/hooks";
-const { count, doubleCount, increase, decrease } = useCounter(0);
+import { ref } from "vue";
+const init_value = ref(0);
+const { count, doubleCount, increase, decrease } = useCounter(init_value);
+const timer = setTimeout(() => {
+  init_value.value = 3;
+  clearTimeout(timer);
+}, 2000);
 </script>
 <template>
   <button @click="() => increase()">this is add</button>

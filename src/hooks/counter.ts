@@ -1,22 +1,22 @@
-import { computed, ref } from "vue";
+import { Ref, computed, ref, toValue } from "vue";
 import {
   increase as increaseCount,
   decrease as decreaseCount,
-  double as doubleCount,
+  double,
 } from "@/utils";
 
-export function useCounter(initValue: number) {
+export function useCounter(initValue: number | Ref<number>) {
   const count = ref(initValue);
-  const double = computed(() => doubleCount(count.value));
+  const doubleCount = computed(() => double(toValue(count)));
   function increase(delta?: number) {
-    count.value = increaseCount(count.value, delta);
+    count.value = increaseCount(toValue(count), delta);
   }
   function decrease(delta?: number) {
-    count.value = decreaseCount(count.value, delta);
+    count.value = decreaseCount(toValue(count), delta);
   }
   return {
     count,
-    double,
+    doubleCount,
     increase,
     decrease,
   };

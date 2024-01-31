@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Count, Text } from "@/components";
 import { getTodo } from "@/services";
-import { useMouse } from "@/hooks";
-import { useAxios } from "@/hooks/request";
+import { useMouse, useAxios } from "@/hooks";
+import { vFocus, vExpandClick } from "@/directives";
 const { x, y } = useMouse();
 const { data, error, loading } = useAxios("test");
 </script>
@@ -17,5 +17,6 @@ const { data, error, loading } = useAxios("test");
   test_loading:{{ loading }} <br />
   test_error:{{ error }}
 
-  <button @click="getTodo">getTodo</button>
+  <button @click="getTodo" v-expand-click="[10, 20, 30, 40]">getTodo</button>
+  <input type="text" v-focus />
 </template>
