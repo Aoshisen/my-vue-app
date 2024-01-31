@@ -2,13 +2,20 @@
 import { Count, Text } from "@/components";
 import { getTodo } from "@/services";
 import { useMouse, useAxios } from "@/hooks";
-import { vFocus, vExpandClick, vEllipsis } from "@/directives";
+import { vFocus, vExpandClick, vEllipsis, vFormat } from "@/directives";
 const { x, y } = useMouse();
 const { data, error, loading } = useAxios("test");
 </script>
 
 <template>
   <Count />
+  <div v-ellipsis>
+    this is a
+    loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooog
+    text
+  </div>
+
+  <div v-format="2263.556"></div>
   <Text :text="1111" />
   {{ x }}
   {{ y }}
