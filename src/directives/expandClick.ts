@@ -21,16 +21,16 @@ function getStyleText(className: string, expand_values: Array<number>) {
   const [top, right, bottom, left] = expand_values;
   const result = `
 	.${className} {
-		position:relative;
+		    position:relative;
 	}
 	.${className}::before {
         content:"";
-		position:absolute;
-		top:-${top}px;
-		bottom:-${bottom}px;
-		right:-${right}px;
-		left:-${left}px;
-	}
+        position:absolute;
+        top:-${top}px;
+        bottom:-${bottom}px;
+        right:-${right}px;
+        left:-${left}px;
+	  }
 	`;
   return result;
 }
