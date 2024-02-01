@@ -1,7 +1,7 @@
 import { generateDirectionValue } from "@/utils";
-import { Directive } from "vue";
+import { ObjectDirective } from "vue";
 
-export const vExpandClick: Directive<HTMLElement, Array<number>> = {
+export const vExpandClick: ObjectDirective<HTMLElement, Array<number>> = {
   mounted(el, binding) {
     const DEFAULT = 10;
     const [top, right, bottom, left] = generateDirectionValue(

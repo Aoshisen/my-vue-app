@@ -1,5 +1,5 @@
-import { Directive } from "vue";
-export const vDefaultImage: Directive<HTMLImageElement, string> = {
+import { ObjectDirective } from "vue";
+export const vDefaultImage: ObjectDirective<HTMLImageElement, string> = {
   async beforeMount(el, binding) {
     try {
       await checkImage(el.src);

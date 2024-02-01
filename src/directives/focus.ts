@@ -1,6 +1,6 @@
-import { Directive } from "vue";
+import { ObjectDirective } from "vue";
 
-export const vFocus: Directive = {
+export const vFocus: ObjectDirective<HTMLInputElement> = {
   mounted(el) {
     el.focus();
   },

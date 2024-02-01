@@ -8,6 +8,7 @@ import {
   vEllipsis,
   vFormat,
   vDefaultImage,
+  vCopy,
 } from "@/directives";
 const { x, y } = useMouse();
 const { data, error, loading } = useAxios("test");
@@ -15,13 +16,13 @@ const { data, error, loading } = useAxios("test");
 
 <template>
   <Count />
-  <div v-ellipsis>
+  <div v-ellipsis v-copy>
     this is a
     loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooog
     text
   </div>
 
-  <div v-format="2263.556"></div>
+  <div v-format>223.5578</div>
   <Text :text="1111" />
   {{ x }}
   {{ y }}
@@ -36,7 +37,6 @@ const { data, error, loading } = useAxios("test");
   <button @click="getTodo" v-expand-click="[20, 20, 20, 20]">getTodo</button>
   <img
     src="//lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/6c61ae65d1c41ae8221a670fa32d05aa.svg"
-
     alt=""
     v-default-image="
       'https://p3-passport.byteacctimg.com/img/user-avatar/ed8de6811706a68595555fec7dc85a13~50x50.awebp'

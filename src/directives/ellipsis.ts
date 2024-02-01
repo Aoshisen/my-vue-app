@@ -1,6 +1,6 @@
-import { Directive } from "vue";
+import { ObjectDirective } from "vue";
 
-export const vEllipsis: Directive = {
+export const vEllipsis: ObjectDirective<HTMLDivElement> = {
   mounted(el, binding) {
     const overLoadStyle = {
       width: binding.arg || 100 + "px",
