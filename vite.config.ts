@@ -3,12 +3,12 @@ import vue from "@vitejs/plugin-vue";
 import tsconfigPaths from "vite-tsconfig-paths";
 import path from "path";
 
-// https://vitejs.dev/config/
 // path helper
 function pathResolve(dir: string) {
-  return path.resolve(__dirname, dir);
+  console.log(path.resolve(__dirname, dir));
+  //兼容windows 路径问题 \ -> /
+  return path.resolve(__dirname, dir).replace(/\\/g, "/");
 }
-
 // styles
 const variables_style_path = pathResolve("./src/assets/styles/_variables.scss");
 const helper_style_path = pathResolve("./src/assets/styles/_helper.scss");

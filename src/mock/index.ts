@@ -1,4 +1,5 @@
 console.log("this is mock");
+//@ts-ignore
 import Mock from "mockjs";
 import MockAdapter from "axios-mock-adapter";
 
