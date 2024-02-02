@@ -4,3 +4,4 @@ export * from "./ellipsis";
 export * from "./format";
 export * from "./defaultImage";
 export * from "./copy";
+export * from "./lazyLoad";

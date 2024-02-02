@@ -9,6 +9,7 @@ import {
   vFormat,
   vDefaultImage,
   vCopy,
+  vLazyLoad,
 } from "@/directives";
 const { x, y } = useMouse();
 const { data, error, loading } = useAxios("test");
@@ -16,13 +17,14 @@ const { data, error, loading } = useAxios("test");
 
 <template>
   <Count />
-  <div v-ellipsis v-copy>
-    this is a
-    loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooog
-    text
-  </div>
+  <div
+    v-ellipsis
+    v-copy="
+      'this is a loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooog text'
+    "
+  ></div>
 
-  <div v-format>223.5578</div>
+  <div v-format="22.5578"></div>
   <Text :text="1111" />
   {{ x }}
   {{ y }}
@@ -43,4 +45,12 @@ const { data, error, loading } = useAxios("test");
     "
   />
   <input type="text" v-focus />
+
+  <div style="margin-top: 2000px"></div>
+  <img
+    alt=""
+    v-lazy-load="
+      'https://p3-passport.byteacctimg.com/img/user-avatar/ed8de6811706a68595555fec7dc85a13~50x50.awebp'
+    "
+  />
 </template>

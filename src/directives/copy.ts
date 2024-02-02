@@ -2,13 +2,14 @@ import { ObjectDirective } from "vue";
 
 export const vCopy: ObjectDirective<HTMLElement> = {
   async mounted(el, binding) {
-    const modifier = binding.modifiers.dblclick ? "dblclick" : "click";
+    const { value, modifiers } = binding;
+    const modifier = modifiers.dblclick ? "dblclick" : "click";
     el.addEventListener(modifier, copyElementInnerText);
+    el.innerText = value;
     async function copyElementInnerText() {
-      const text = el.innerText;
       try {
-        await copy(text);
-        alert("Text copied to clipboard" + text);
+        await copy(value);
+        alert("Text copied to clipboard" + value);
       } catch (error) {
         alert("Error in copying text to clipboard" + error);
       }
