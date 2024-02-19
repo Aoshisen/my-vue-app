@@ -15,8 +15,6 @@ export function useAxios(url: Ref<string> | string) {
       error.value = result.statusText;
     }
   }
-  watchEffect(() => {
-    fetchData();
-  });
+  watchEffect(fetchData);
   return { data, error, loading };
 }
