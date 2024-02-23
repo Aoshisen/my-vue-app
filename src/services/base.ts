@@ -12,7 +12,7 @@ const axiosConfig: CreateAxiosDefaults = {
 const axios = axiosFactory.create(axiosConfig);
 
 // 请求拦截器成功的拦截
-const requestInterceptorSuccess = async (
+const requestInterceptorSuccess =  (
   config: InternalAxiosRequestConfig
 ) => {
   // 返回配置
@@ -20,18 +20,18 @@ const requestInterceptorSuccess = async (
   return config;
 };
 // 请求拦截器,失败的拦截
-const requestInterceptorFail = async (error: any) => {
+const requestInterceptorFail =  (error: any) => {
   console.log("请求拦截器失败的拦截", error);
   return Promise.reject(error);
 };
 
 //响应拦截器成功的情况
-const responseInterceptorSuccess = async (response: AxiosResponse) => {
+const responseInterceptorSuccess =  (response: AxiosResponse) => {
   console.log("响应拦截器成功的拦截", response);
   return response;
 };
 //响应拦截器,失败的情况
-const responseInterceptorFail = async (error: any) => {
+const responseInterceptorFail =  (error: any) => {
   console.log("响应拦截器失败的拦截", error);
   return Promise.reject(error);
 };
