@@ -1,0 +1,49 @@
+.container {
+  //通过display:flex 来明确 .text-container 的高度（高度不确定）,而如果明确.text-container 的高度的话，又无法做到，高度被元素自己撑高
+  display: flex;
+  .text-container {
+    //设置position:relative 是为了让 伪元素after 能设置absolute 从而超出文档流
+    position: relative;
+    font-size: 14px;
+    max-height: 4.5em;
+    line-height: 1.5;
+    overflow: hidden;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    &::before {
+      //浮动元素可以设置高度
+      float: right;
+      content: "";
+      height: calc(100% - 1.5em);
+    }
+    &::after {
+      //非浮动元素不能设置高度,而position:absolute 也可设置宽高
+      //当前元素的作用是遮挡See-more 元素
+      content: "";
+      height: 1.5em;
+      background-color: white;
+      position: absolute;
+      width: 100%;
+    }
+    .see-more {
+      //通过浮动元素.text-container 的&&:before float: right; 来把当前元素顶到合适的位置[这里思考过用margin 把当前元素移动到合适位置，但是，margin区域会算作当前的元素区域，而把文字区域撑开]
+      float: right;
+      clear: both;
+      font-size: 14px;
+      color: #3461ff;
+      cursor: pointer;
+    }
+    &.expanded {
+      //展开的时候，是已知文本超过可显示区域了，
+      max-height: none;
+      //之前是webkit-box 是为了设置超出展示...,这个时候要展示全部的信息。
+      display: block;
+      &::after {
+        // 这个时候不需要遮挡的元素显示出来
+        content: none;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Count, Text } from "@/components";
+import { Count, Text, ExpandText } from "@/components";
 import { getTodo } from "@/services";
 import { useMouse, useAxios } from "@/hooks";
 import {
@@ -13,9 +13,11 @@ import {
 } from "@/directives";
 const { x, y } = useMouse();
 const { data, error, loading } = useAxios("test");
+const long_text="jsaajsdfjasfd jsaajsdfjasfd jsaajsdfjasfd jsaajsdfjasfd jsaajsdfjasfd jsaajsdfjasfd jsaajsdfjasfd jsaajsdfjasfd jsaajsdfjasfd jsaajsdfjasfd jsaajsdfjasfd jsaajsdfjasfd jsaajsdfjasfd jsaajsdfjasfd jsaajsdfjasfd jsaajsdfjasfd jsaajsdfjasfd jsaajsdfjasfd jsaajsdfjasfd jsaajsdfjasfd"
 </script>
 
 <template>
+  <ExpandText>{{ long_text }} </ExpandText>
   <Count />
   <div
     v-ellipsis
